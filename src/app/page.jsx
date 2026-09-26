@@ -16,7 +16,7 @@ export default function Home() {
             Workout Library
           </p>
 
-          <h1 className="text-5xl md:text-5xl font-extrabold uppercase leading-tight tracking-wide">
+          <h1 className="text-white text-5xl md:text-5xl font-extrabold uppercase leading-tight tracking-wide">
             Train with intent. <br /> Log every set.
           </h1>
 
@@ -48,7 +48,7 @@ export default function Home() {
       </section>
 
       <section id="library" className="mt-16">
-        <h2 className="text-4xl font-extrabold mb-2 uppercase">THE LIBRARY</h2>
+        <h2 className="text-white text-4xl font-extrabold mb-2 uppercase">THE LIBRARY</h2>
         <p className="text-gray-400 text-lg">Twelve lifts covering every major muscle group.</p>
         <WorkoutLibrary />
       </section>
