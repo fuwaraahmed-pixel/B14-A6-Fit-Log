@@ -20,7 +20,7 @@ export default function MyPlanPage() {
     const totalCalories = displayList.reduce((total, item) => total + item.caloriesBurned, 0);
 
 
-    // সর্ট (Sort) করার লজিক (Challenge Requirement)
+    // সর্ট (Sort) করার লজিক (বড় থেকে ছোট / Descending)
     const sortedList = [...displayList].sort((a, b) => {
         if (sortBy === "duration") return b.duration - a.duration;
         if (sortBy === "calories") return b.caloriesBurned - a.caloriesBurned;
@@ -74,15 +74,21 @@ export default function MyPlanPage() {
                 {/* Sort Dropdown */}
                 <div className="flex items-center gap-2 text-sm text-gray-400">
                     <span>Sort By</span>
-                    <select
-                        value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value)}
-                        className="bg-[#111111] border border-gray-700 hover:border-gray-500 text-white px-4 py-2 rounded-full outline-none cursor-pointer appearance-none text-center min-w-[120px]"
-                    >
-                        <option value="duration">Duration</option>
-                        <option value="calories">Calories</option>
-                        <option value="rating">Rating</option>
-                    </select>
+                    <div className="relative">
+                        <select
+                            value={sortBy}
+                            onChange={(e) => setSortBy(e.target.value)}
+                            className="bg-[#111111] border border-gray-700 hover:border-gray-500 text-white pl-4 pr-8 py-2 rounded-full outline-none cursor-pointer appearance-none text-left min-w-[120px]"
+                        >
+                            <option value="duration">Duration</option>
+                            <option value="calories">Calories</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                        {/* Chevron Icon (▼) */}
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xs">
+                            ▼
+                        </div>
+                    </div>
                 </div>
             </div>
 
