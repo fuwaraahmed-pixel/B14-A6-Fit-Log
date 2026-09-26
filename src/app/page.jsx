@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import WorkoutLibrary from "./components/WorkoutLibrary";
+
 
 export default function Home() {
   return (
@@ -53,6 +55,8 @@ export default function Home() {
         <p className="text-gray-400 text-lg">Twelve lifts covering every major muscle group.</p>
 
         {/* এখানেই আমাদের API থেকে আনা ওয়ার্কআউটগুলো বসবে */}
+        <WorkoutLibrary />
+
       </section>
 
     </main>
