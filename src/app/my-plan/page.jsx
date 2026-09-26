@@ -11,13 +11,14 @@ export default function MyPlanPage() {
     const [activeTab, setActiveTab] = useState("plan"); // "plan" বা "saved"
     const [sortBy, setSortBy] = useState("duration");
 
-    // Metrics calculation (শুধুমাত্র প্ল্যান করা ওয়ার্কআউটের জন্য)
-    const totalExercises = plannedWorkouts.length;
-    const totalMinutes = plannedWorkouts.reduce((total, item) => total + item.duration, 0);
-    const totalCalories = plannedWorkouts.reduce((total, item) => total + item.caloriesBurned, 0);
-
     // কোন ট্যাবে ক্লিক করা আছে তার উপর ভিত্তি করে ডেটা দেখানো
     const displayList = activeTab === "plan" ? plannedWorkouts : savedWorkouts;
+
+    // Metrics calculation (অ্যাকটিভ ট্যাবের ডেটা দিয়ে হিসেব হবে)
+    const totalExercises = displayList.length;
+    const totalMinutes = displayList.reduce((total, item) => total + item.duration, 0);
+    const totalCalories = displayList.reduce((total, item) => total + item.caloriesBurned, 0);
+
 
     // সর্ট (Sort) করার লজিক (Challenge Requirement)
     const sortedList = [...displayList].sort((a, b) => {
@@ -76,7 +77,7 @@ export default function MyPlanPage() {
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
-                        className="bg-[#1a1a1a] border border-gray-800 text-white px-3 py-2 rounded-lg outline-none cursor-pointer"
+                        className="bg-[#111111] border border-gray-700 hover:border-gray-500 text-white px-4 py-2 rounded-full outline-none cursor-pointer appearance-none text-center min-w-[120px]"
                     >
                         <option value="duration">Duration</option>
                         <option value="calories">Calories</option>
