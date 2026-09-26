@@ -10,7 +10,6 @@ export default function WorkoutDetails() {
     const [workout, setWorkout] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Context থেকে ফাংশনগুলো নিয়ে আসা হলো
     const { addToPlan, saveForLater } = useWorkout();
 
     useEffect(() => {
@@ -44,7 +43,6 @@ export default function WorkoutDetails() {
         <main className="container mx-auto px-4 md:px-8 py-10">
             <div className="flex flex-col lg:flex-row gap-12 mt-10">
 
-                {/* Left Side */}
                 <div className="lg:w-1/2">
                     <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden border-2 border-gray-800">
                         <Image
@@ -57,11 +55,10 @@ export default function WorkoutDetails() {
                     </div>
                 </div>
 
-                {/* Right Side */}
                 <div className="lg:w-1/2 flex flex-col">
                     <div className="flex flex-wrap gap-2 mb-4">
                         {workout.muscleGroups?.map((tag, index) => (
-                            <span key={index} className="bg-black border border-gray-700 text-xs font-bold px-4 py-1.5 rounded-full text-gray-300 uppercase tracking-wider">
+                            <span key={index} className="bg-[#ccff00] text-black text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">
                                 {tag}
                             </span>
                         ))}
@@ -106,7 +103,6 @@ export default function WorkoutDetails() {
                         </ol>
                     </div>
 
-                    {/* Call-to-action buttons (এখানে onClick ইভেন্ট যোগ করা হয়েছে) */}
                     <div className="flex flex-col sm:flex-row gap-4 mt-auto">
                         <button
                             onClick={() => addToPlan(workout)}

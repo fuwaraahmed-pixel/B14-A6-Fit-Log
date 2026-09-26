@@ -10,7 +10,6 @@ export function WorkoutProvider({ children }) {
     const [savedWorkouts, setSavedWorkouts] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    // পেজ রিলোড দিলে যেন ডেটা মুছে না যায়, তাই localStorage থেকে ডেটা নিয়ে আসছি
     useEffect(() => {
         const localPlan = localStorage.getItem("plannedWorkouts");
         const localSaved = localStorage.getItem("savedWorkouts");
@@ -21,7 +20,6 @@ export function WorkoutProvider({ children }) {
         setIsLoaded(true);
     }, []);
 
-    // যখনই ডেটা চেঞ্জ হবে, তখন localStorage আপডেট হবে
     useEffect(() => {
         if (isLoaded) {
             localStorage.setItem("plannedWorkouts", JSON.stringify(plannedWorkouts));
@@ -29,7 +27,6 @@ export function WorkoutProvider({ children }) {
         }
     }, [plannedWorkouts, savedWorkouts, isLoaded]);
 
-    // Plan এ অ্যাড করার ফাংশন
     const addToPlan = (workout) => {
         if (plannedWorkouts.length >= 5) {
             toast.error("You can only add up to 5 lifts for today!");
@@ -46,7 +43,6 @@ export function WorkoutProvider({ children }) {
         toast.success("Added to today's plan");
     };
 
-    // Saved এ অ্যাড করার ফাংশন
     const saveForLater = (workout) => {
         const isAlreadySaved = savedWorkouts.find(w => w.id === workout.id);
         if (isAlreadySaved) {
@@ -58,13 +54,11 @@ export function WorkoutProvider({ children }) {
         toast.success("Saved for later");
     };
 
-    // Plan থেকে রিমুভ করার ফাংশন
     const removeFromPlan = (id) => {
         setPlannedWorkouts(plannedWorkouts.filter(w => w.id !== id));
         toast.success("Removed from plan");
     };
 
-    // Saved থেকে রিমুভ করার ফাংশন
     const removeFromSaved = (id) => {
         setSavedWorkouts(savedWorkouts.filter(w => w.id !== id));
         toast.success("Removed from saved list");

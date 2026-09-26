@@ -10,7 +10,6 @@ export default function Home() {
       {/* Hero / Banner Section */}
       <section className="flex flex-col md:flex-row items-center justify-between gap-10 mt-8 md:mt-16">
 
-        {/* বাম দিকের টেক্সট */}
         <div className="flex-1 space-y-6">
           <p className="text-[#ccff00] font-bold tracking-widest text-sm uppercase">
             Workout Library
@@ -29,14 +28,12 @@ export default function Home() {
             className="inline-flex items-center gap-2 bg-[#ccff00] text-black font-bold text-lg px-8 py-4 rounded hover:bg-white transition-colors"
           >
             BROWSE WORKOUTS
-            {/* নিচের আইকনটি একটি নিচের দিকের অ্যারো (Down Arrow) */}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
           </Link>
         </div>
 
-        {/* ডান দিকের ছবি */}
         <div className="flex-1 w-full flex justify-end">
           <Image
             src="/banner.png"
@@ -49,14 +46,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Library Section (আপাতত ফাঁকা রাখছি, পরে এখানে কার্ডগুলো বসাবো) */}
       <section id="library" className="mt-32">
         <h2 className="text-4xl font-extrabold mb-2 uppercase">THE LIBRARY</h2>
         <p className="text-gray-400 text-lg">Twelve lifts covering every major muscle group.</p>
-
-        {/* এখানেই আমাদের API থেকে আনা ওয়ার্কআউটগুলো বসবে */}
         <WorkoutLibrary />
-
       </section>
 
     </main>

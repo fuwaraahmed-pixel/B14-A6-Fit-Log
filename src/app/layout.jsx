@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { WorkoutProvider } from "./context/WorkoutContext";
 import { Toaster } from "react-hot-toast";
+import Footer from "./components/Footer";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +20,25 @@ export default function RootLayout({ children }) {
         <WorkoutProvider>
           <Navbar />
           {children}
-          {/* Toaster যোগ করা হলো যেন নোটিফিকেশন দেখায় */}
-          <Toaster position="bottom-right" />
+          <Footer />
+          <Toaster position="bottom-right"
+            toastOptions={{
+              success: {
+                style: {
+                  background: '#101010',
+                  color: '#ccff00',
+                  border: '1px solid #ccff00',
+                }
+              },
+              error: {
+                style: {
+                  background: '#101010',
+                  color: '#ff6600',
+                  border: '1px solid #ff6600',
+                }
+              }
+            }}
+          />
         </WorkoutProvider>
       </body>
     </html>

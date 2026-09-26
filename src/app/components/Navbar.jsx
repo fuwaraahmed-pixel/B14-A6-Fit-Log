@@ -10,13 +10,13 @@ export default function Navbar() {
     const { plannedWorkouts, savedWorkouts } = useWorkout();
 
     return (
-        <nav className="flex items-center justify-between px-4 md:px-8 py-4 bg-black text-white border-b border-gray-800">
+        <nav className="flex flex-wrap items-center justify-between px-4 md:px-8 py-4 bg-black text-white border-b border-gray-800 gap-y-4">
             <Link href="/" className="flex items-center gap-2">
                 <Image src="/logo.png" alt="FitLog Logo" width={32} height={32} />
                 <span className="font-bold text-xl tracking-wider">FITLOG</span>
             </Link>
 
-            <div className="hidden md:flex items-center gap-8 font-semibold">
+            <div className="flex items-center gap-4 md:gap-8 font-semibold text-sm md:text-base mt-2 sm:mt-0 order-last sm:order-none w-full sm:w-auto justify-center">
                 <Link href="/" className={`${pathname === "/" ? "text-[#ccff00]" : "text-gray-400 hover:text-white"}`}>
                     Workout
                 </Link>
