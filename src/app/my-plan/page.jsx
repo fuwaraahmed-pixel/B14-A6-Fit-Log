@@ -26,19 +26,19 @@ export default function MyPlanPage() {
     });
 
     return (
-        <main className="container mx-auto px-4 md:px-8 py-10 max-w-5xl">
+        <main className="max-w-7xl mx-auto px-6 py-12">
 
             <div className="mb-8 text-left">
                 <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-wide mb-2">My Plan</h1>
                 <p className="text-gray-400 text-sm md:text-base">Cap of five lifts for today. Finish them, then load more.</p>
             </div>
 
-            <div className="bg-[#111111] border border-gray-800 rounded-xl p-6 md:p-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div className="flex-1 w-full md:border-r border-gray-800">
+            <div className="bg-[#15171D] border border-[#222630] rounded-2xl px-6 py-6 md:px-12 md:py-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div className="flex-1 w-full md:border-r border-[#222630]">
                     <p className="text-gray-500 text-xs font-semibold mb-2">Exercises</p>
                     <p className="text-4xl font-extrabold text-[#ccff00]">{totalExercises}</p>
                 </div>
-                <div className="flex-1 w-full md:border-r border-gray-800 md:pl-6">
+                <div className="flex-1 w-full md:border-r border-[#222630] md:pl-6">
                     <p className="text-gray-500 text-xs font-semibold mb-2">Minutes</p>
                     <p className="text-4xl font-extrabold">{totalMinutes}</p>
                 </div>

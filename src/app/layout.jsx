@@ -1,12 +1,11 @@
-import { Inter } from "next/font/google";
+import { Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { WorkoutProvider } from "./context/WorkoutContext";
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
 
-
-const inter = Inter({ subsets: ["latin"] });
+const oswald = Oswald({ subsets: ["latin"] });
 
 export const metadata = {
   title: "FitLog - Workout Library",
@@ -16,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-white min-h-screen`}>
+      <body className={`${oswald.className} bg-black text-white min-h-screen`}>
         <WorkoutProvider>
           <Navbar />
           {children}

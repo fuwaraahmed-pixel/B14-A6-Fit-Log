@@ -33,7 +33,7 @@ export default function WorkoutLibrary() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
             {workouts.map((workout) => (
                 <Link href={`/workout/${workout.id}`} key={workout.id}>
-                    <div className="bg-[#111111] rounded-xl overflow-hidden hover:ring-2 hover:ring-[#ccff00] transition-all cursor-pointer h-full flex flex-col border border-gray-800 hover:border-[#ccff00]">
+                    <div className="bg-[#15171D] rounded-2xl overflow-hidden hover:ring-2 hover:ring-[#ccff00] transition-all cursor-pointer h-full flex flex-col border border-[#222630] hover:border-[#ccff00]">
                         <div className="relative h-60 w-full">
                             <Image
                                 src={workout.image}
@@ -58,7 +58,7 @@ export default function WorkoutLibrary() {
                             <p className="text-gray-400 text-sm mb-6 flex-1">{workout.equipment}</p>
 
                             
-                            <div className="flex items-center justify-between border-t border-gray-800 pt-4 mt-auto">
+                            <div className="flex items-center justify-between border-t border-[#222630] pt-4 mt-auto">
                                 <div className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
                                     <span>⏱️</span> {workout.duration} min
                                 </div>

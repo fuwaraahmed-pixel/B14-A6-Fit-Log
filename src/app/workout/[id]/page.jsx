@@ -40,8 +40,8 @@ export default function WorkoutDetails() {
     }
 
     return (
-        <main className="container mx-auto px-4 md:px-8 py-10">
-            <div className="flex flex-col lg:flex-row gap-12 mt-10">
+        <main className="max-w-7xl mx-auto px-6 py-12">
+            <div className="flex flex-col lg:flex-row gap-12">
 
                 <div className="lg:w-1/2">
                     <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden border-2 border-gray-800">
@@ -56,7 +56,10 @@ export default function WorkoutDetails() {
                 </div>
 
                 <div className="lg:w-1/2 flex flex-col">
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <h1 className="text-4xl md:text-5xl font-extrabold uppercase mb-2">{workout.name}</h1>
+                    <p className="text-gray-400 text-base mb-6">{workout.description}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-8">
                         {workout.muscleGroups?.map((tag, index) => (
                             <span key={index} className="bg-[#ccff00] text-black text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">
                                 {tag}
@@ -64,57 +67,64 @@ export default function WorkoutDetails() {
                         ))}
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl font-extrabold uppercase mb-4">{workout.name}</h1>
-                    <p className="text-gray-400 text-lg mb-8">{workout.description}</p>
-
-                    <div className="bg-[#111111] border border-gray-800 rounded-xl p-6 mb-8 grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-4">
-                        <div>
-                            <p className="text-gray-500 text-xs font-bold uppercase mb-1">Equipment</p>
-                            <p className="font-semibold">{workout.equipment}</p>
+                    <div className="bg-[#15171D] border border-[#222630] rounded-xl p-6 mb-8 text-sm">
+                        <div className="flex justify-between items-center pb-4 border-b border-[#222630]">
+                            <span className="text-gray-500 font-bold uppercase tracking-wider text-xs">Equipment</span>
+                            <span className="font-semibold text-gray-300">{workout.equipment}</span>
                         </div>
-                        <div>
-                            <p className="text-gray-500 text-xs font-bold uppercase mb-1">Difficulty</p>
-                            <p className="font-semibold">{workout.difficulty}</p>
+                        <div className="flex justify-between items-center py-4 border-b border-[#222630]">
+                            <span className="text-gray-500 font-bold uppercase tracking-wider text-xs">Difficulty</span>
+                            <span className="font-semibold text-gray-300">{workout.difficulty}</span>
                         </div>
-                        <div>
-                            <p className="text-gray-500 text-xs font-bold uppercase mb-1">Sets / Reps</p>
-                            <p className="font-semibold">{workout.sets} / {workout.reps}</p>
+                        <div className="flex justify-between items-center py-4 border-b border-[#222630]">
+                            <span className="text-gray-500 font-bold uppercase tracking-wider text-xs">Sets</span>
+                            <span className="font-semibold text-gray-300">{workout.sets}</span>
                         </div>
-                        <div>
-                            <p className="text-gray-500 text-xs font-bold uppercase mb-1">Duration</p>
-                            <p className="font-semibold">{workout.duration} min</p>
+                        <div className="flex justify-between items-center py-4 border-b border-[#222630]">
+                            <span className="text-gray-500 font-bold uppercase tracking-wider text-xs">Reps</span>
+                            <span className="font-semibold text-gray-300">{workout.reps}</span>
                         </div>
-                        <div>
-                            <p className="text-gray-500 text-xs font-bold uppercase mb-1">Calories</p>
-                            <p className="font-semibold">{workout.caloriesBurned} kcal</p>
+                        <div className="flex justify-between items-center py-4 border-b border-[#222630]">
+                            <span className="text-gray-500 font-bold uppercase tracking-wider text-xs">Duration</span>
+                            <span className="font-semibold text-gray-300">{workout.duration} min</span>
                         </div>
-                        <div>
-                            <p className="text-gray-500 text-xs font-bold uppercase mb-1">Rating</p>
-                            <p className="font-semibold text-[#ccff00]">⭐ {workout.rating}</p>
+                        <div className="flex justify-between items-center py-4 border-b border-[#222630]">
+                            <span className="text-gray-500 font-bold uppercase tracking-wider text-xs">Calories</span>
+                            <span className="font-semibold text-gray-300">{workout.caloriesBurned} kcal</span>
+                        </div>
+                        <div className="flex justify-between items-center pt-4">
+                            <span className="text-gray-500 font-bold uppercase tracking-wider text-xs">Rating</span>
+                            <span className="font-semibold text-gray-300">{workout.rating}</span>
                         </div>
                     </div>
 
                     <div className="mb-10">
-                        <h3 className="text-2xl font-bold uppercase mb-4">Instructions</h3>
-                        <ol className="list-decimal list-inside space-y-3 text-gray-300">
+                        <h3 className="text-lg font-bold uppercase mb-4 tracking-wider">Instructions</h3>
+                        <ol className="list-decimal list-outside pl-4 space-y-4 text-gray-400 text-sm">
                             {workout.instructions?.map((step, index) => (
-                                <li key={index} className="pl-2">{step}</li>
+                                <li key={index} className="pl-2 leading-relaxed">{step}</li>
                             ))}
                         </ol>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 mt-auto">
+                    <div className="flex flex-wrap gap-4 mt-auto">
                         <button
                             onClick={() => addToPlan(workout)}
-                            className="flex-1 bg-[#ccff00] text-black font-bold text-lg px-6 py-4 rounded hover:bg-white transition-colors flex justify-center items-center gap-2"
+                            className="bg-[#ccff00] text-black font-bold text-sm px-5 py-2.5 rounded hover:bg-white transition-colors flex justify-center items-center gap-2"
                         >
-                            <span>➕</span> Add to today's plan
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                            Add to today's plan
                         </button>
                         <button
                             onClick={() => saveForLater(workout)}
-                            className="flex-1 border-2 border-gray-600 text-white font-bold text-lg px-6 py-4 rounded hover:border-white transition-colors flex justify-center items-center gap-2"
+                            className="border border-[#222630] bg-transparent text-gray-300 font-bold text-sm px-5 py-2.5 rounded hover:border-gray-500 transition-colors flex justify-center items-center gap-2"
                         >
-                            <span>🔖</span> Save for later
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+                            </svg>
+                            Save for later
                         </button>
                     </div>
 
